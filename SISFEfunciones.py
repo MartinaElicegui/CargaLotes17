@@ -42,15 +42,15 @@ def leerArchivos():
         if lineaD == "":
             break
         
-        if (contadorDemandas == 0 or contadorDemandas//5 == 1):
-            mail = ingresoDemanda[0]
-            localidad = (ingresoDemanda[1]).upper()
-            competencia = (ingresoDemanda[2]).upper()
-            organismo = ingresoDemanda[3]
-            tipoCausa = (ingresoDemanda[4]).upper()
-            causa = (ingresoDemanda[5]).upper()
-            actor = (ingresoDemanda[6]).upper()
-            domicilio = (ingresoDemanda[7]).upper()
+        #if (contadorDemandas == 0 or contadorDemandas//5 == 1):
+        mail = ingresoDemanda[0]
+        localidad = (ingresoDemanda[1]).upper()
+        competencia = (ingresoDemanda[2]).upper()
+        organismo = ingresoDemanda[3]
+        tipoCausa = (ingresoDemanda[4]).upper()
+        causa = (ingresoDemanda[5]).upper()
+        actor = (ingresoDemanda[6]).upper()
+        domicilio = (ingresoDemanda[7]).upper()
 
         demandados.append(ingresoDemanda[9]+ingresoDemanda[10])
         domicilios.append(ingresoDemanda[11])
@@ -257,14 +257,14 @@ def cargarDatosProfesional(info,driver):
     try:
         textFieldCorreo = esperarCargaElemento("email",driver)
         textFieldCorreo.send_keys(info[4])
-        sleep(randint(2,3))
+        sleep(randint(5,6))
     except:
         print("El correo no se cargó correctamente")
 
     try:
         droplistLocalidad = esperarCargaElemento("droplistLocalidad",driver)
         droplistLocalidad.send_keys(info[5])
-        sleep(randint(2,3))
+        sleep(randint(4,5))
     except:
         print("El droplist localidad no se cargó correctamente")
 
@@ -386,6 +386,7 @@ def validarArchivo():
         for row in csv_reader:
             line_count += 1
             if (len(row) != 14):
+                print(len(row))
                 quitar_registros.append(row)
                 agregarAerrores(row)
             else:

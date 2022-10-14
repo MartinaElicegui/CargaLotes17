@@ -2,7 +2,7 @@ import sys
 from SISFEfunciones import *
 from easygui import *
 
-def main(): 
+def main():
     cantidadApremios = validarArchivo()
     driver = generarDriver()
     informacion = leerArchivos()
